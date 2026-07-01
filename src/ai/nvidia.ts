@@ -38,7 +38,7 @@ export class NVIDIAService implements IAIService {
           model,
           messages,
           temperature: request.temperature ?? 0.7,
-          max_tokens: request.maxTokens ?? 1024,
+          max_tokens: request.maxTokens ?? 4096,
           stream: false,
         });
 
@@ -99,7 +99,7 @@ export class NVIDIAService implements IAIService {
           model,
           messages,
           temperature: request.temperature ?? 0.7,
-          max_tokens: request.maxTokens ?? 1024,
+          max_tokens: request.maxTokens ?? 4096,
           stream: true,
         },
         { responseType: 'stream', timeout: AI_TIMEOUT_MS },

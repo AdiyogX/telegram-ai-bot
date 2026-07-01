@@ -73,7 +73,7 @@ export class SessionManager implements ISessionManager {
           },
         ],
         temperature: 0.3,
-        maxTokens: 256,
+        maxTokens: 1024,
       });
       return response.content;
     } catch {

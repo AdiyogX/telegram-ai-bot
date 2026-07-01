@@ -77,7 +77,7 @@ export async function handleCallbackQuery(ctx: Context): Promise<void> {
       await db.updateUserSettings(user.id, {
         model: 'meta/llama-3.1-8b-instruct',
         temperature: 0.7,
-        maxTokens: 1024,
+        maxTokens: 4096,
       } as Record<string, unknown>);
       await ctx.editMessageText('✅ Settings reset to defaults.', { parse_mode: 'Markdown' });
     } else if (data === 'settings:back') {

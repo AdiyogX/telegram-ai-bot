@@ -78,10 +78,16 @@ export async function handleAIChat(ctx: Context): Promise<void> {
         ? response.content.substring(0, TELEGRAM_MESSAGE_LIMIT - 100) + '\n\n*(truncated)*'
         : response.content;
 
-      await ctx.reply(replyContent, {
-        parse_mode: 'Markdown',
-        reply_parameters: msg.message_id ? { message_id: msg.message_id } : undefined,
-      });
+      try {
+        await ctx.reply(replyContent, {
+          parse_mode: 'Markdown',
+          reply_parameters: msg.message_id ? { message_id: msg.message_id } : undefined,
+        });
+      } catch {
+        await ctx.reply(replyContent, {
+          reply_parameters: msg.message_id ? { message_id: msg.message_id } : undefined,
+        });
+      }
 
       logger.debug('AI response sent', {
         userId: user.id,
