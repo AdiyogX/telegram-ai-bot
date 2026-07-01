@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: telegram-ai-bot
+    env: docker
+    repo: https://github.com/your-username/telegram-ai-bot
+    branch: main
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: NVIDIA_API_KEY
+        sync: false
+      - key: NODE_ENV
+        value: production
+      - key: WEBHOOK_URL
+        value: https://telegram-ai-bot.onrender.com
+      - key: WEBHOOK_SECRET
+        generateValue: true
+      - key: LOG_LEVEL
+        value: info
