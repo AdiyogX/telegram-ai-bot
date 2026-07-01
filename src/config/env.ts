@@ -8,7 +8,7 @@ dotenv.config();
 const envSchema = z.object({
   TELEGRAM_BOT_TOKEN: z.string().min(1, 'TELEGRAM_BOT_TOKEN is required'),
   NVIDIA_API_KEY: z.string().min(1, 'NVIDIA_API_KEY is required'),
-  NVIDIA_API_BASE_URL: z.string().url().default('https://api.nvcf.nvidia.com/v2/nvcf'),
+  NVIDIA_API_BASE_URL: z.string().url().default('https://integrate.api.nvidia.com/v1'),
   NVIDIA_MODEL: z.string().default('meta/llama-3.1-8b-instruct'),
   PORT: z.coerce.number().default(3000),
   HOST: z.string().default('0.0.0.0'),

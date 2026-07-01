@@ -148,7 +148,7 @@ export class NVIDIAService implements IAIService {
 
   async isAvailable(): Promise<boolean> {
     try {
-      await this.client.get('/health', { timeout: 5000 });
+      await this.client.get('/models', { timeout: 5000 });
       return true;
     } catch {
       return false;
